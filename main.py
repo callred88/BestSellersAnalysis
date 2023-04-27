@@ -36,10 +36,20 @@ def example_analysis(book_list):
 
 def analysis_one(book_list):
     print("Analysis of which book had the lowest number of reviews in 2018")
+    book_2018 = list(filter(lambda book: book['year'] == 2018, book_list))
+    book_rating = min(book_2018, key=lambda book: book['user_rating'])
+    print(
+          f'The book with the lowest number of reviews is {book_rating["name"]} with a review of {book_rating["user_rating"]}')
+    
 
 
 def analysis_two(book_list):
     print("Analysis of which genre (fiction or non-fiction) has appeared the most in the book list")
+    genre_list = max(book_list, key=lambda book: book['genre'])
+    key_to_count = 'genre'
+    number = len(list(filter(lambda book: book[key_to_count] == genre_list[key_to_count],book_list)))
+    print(
+          f'Top Genre:{genre_list["genre"]} Frequency: {number}')
 
 
 def analysis_three(book_list):
