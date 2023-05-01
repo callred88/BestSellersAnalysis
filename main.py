@@ -54,6 +54,11 @@ def analysis_two(book_list):
 
 def analysis_three(book_list):
     print("Analysis of which book has appeared the most in the book list, and how many times it has appeared")
+    book_count = max(book_list, key=lambda book:  book['name'])
+    book_to_count = 'name'
+    number = len(list(filter(lambda book: book[book_to_count] == book_count[book_to_count], book_list)))
+    print(
+          f'Book Title: {book_count["name"]} Frequency: {number}')  
 
 
 # BONUS USER STORIES:
